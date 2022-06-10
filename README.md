@@ -1,5 +1,5 @@
-## VFN
-# Vietnamese Fake News detection
+# VFN
+### Vietnamese Fake News detection
 
 run the app.py
 
