@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search results</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+</head>
+<style>
+    .searchbar{
+        margin-left: 10px;
+        width: 100%;
+        padding-top: 10px;
+    }
+
+    .bar{
+        border-radius: 40px;
+        box-shadow: 2px 3px 0px -2px #ccc;
+        padding:10px;
+        border:0px;
+        outline: none;
+        border-top: 1px solid #ccc;
+        border-left: 1px solid #ccc;
+        border-right: 1px solid #ccc;
+        border-bottom: 1px solid #CCC;
+        width: 500px;
+    }
+
+    .bar:hover{
+        box-shadow: 3px 6px 7px -3px #ccc;
+    }
+
+    .bar:focus {
+        box-shadow: 3px 6px 7px -3px #ccc;
+    }
+
+    .results {
+        margin-left: 200px;
+    }
+
+    .predict {
+        margin-left: 100px;
+    }
+</style>
+<body>
+    <form action="/search" method="POST">
+        <form action="#" method="POST">
+            <div class="searchbar">
+                <img src=https://i.ibb.co/2PLkRt4/lhp.png" alt="lhp" width="80" height="80">
+                <input name="query" type="text submit" placeholder="Tin tức bạn muốn kiểm tra" class="bar" value="{{query}}" height="500" required>
+            </div>
+        </form>
+    </form>
+    <hr>
+    <div class="predict">
+        {%if results |length > 0%}
+            {%if query |length < 10%}
+                <b><p style="font-size:2vw">Không thể xác định đây là tin thật hay tin giả</p></b>
+            {%elif results[0] > 0.5%}
+                <b><p style="color:green;font-size:2vw">ĐÂY LÀ TIN THẬT</p></b>
+            {%else%}
+                <b><p style="color:tomato;font-size:2vw">CẨN THẬN! ĐÂY CÓ THỂ LÀ TIN GIẢ</p></b>
+            {%endif%}
+            <p style="font-size:2vw"><b>Các tin thật mới nhất liên quan đến kết quả </b>"{{query}}"</p><br>
+        {%else%}
+            <b><p style="font-size:2vw">Không thể xác định đây là tin thật hay tin giả</p></b>
+            <p style="font-size:2vw"><b>Không tìm thấy tin tức nào liên quan đến kết quả </b>"{{query}}"</p><br>
+        {%endif%}
+    </div>
+    <div class="results">
+        {%for i in range(1,results |length,3)%}
+            <a style="font-size:2vw"><b>Báo {{results[i+2]}}: </b></a>
+            <a style="font-size:2vw" href="{{results[i+1]}}">{{results[i]}}</a>
+            <p>{{results[i+1]}}</p><br><br>
+        {%endfor%}
+    </div>
+    <br><br>
+
+</body>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+</html>

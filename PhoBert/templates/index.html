@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhận biết tin rác</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    .text-center{
+        face : "Comic sans MS";
+    }
+
+    .searchbar{
+        margin-top: 0px;
+        margin-left: 500px;
+        width: 100%;
+    }
+
+    .bar{
+        border-radius: 40px;
+        box-shadow: 2px 3px 0px -2px #ccc;
+        padding:10px;
+        border:0px;
+        outline: none;
+        border-top: 1px solid #ccc;
+        border-left: 1px solid #ccc;
+        border-right: 1px solid #ccc;
+        border-bottom: 1px solid #CCC;
+        width: 500px;
+    }
+
+    .bar:hover{
+        box-shadow: 3px 6px 7px -3px #ccc;
+    }
+
+    .bar:focus {
+        box-shadow: 3px 6px 7px -3px #ccc;
+    }
+
+    .search-title {
+        font-size: 100px;
+        margin-top: 150px;
+    }
+    footer{
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 50px 100px;
+    background: #111;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+footer .container{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+footer .container .noi-dung{
+    margin-right: 30px;
+}
+
+footer  .container .noi-dung.about{
+    width:40%;
+}
+footer .container .noi-dung.about h2{
+    position: relative;
+    color: #fff;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+footer .container .noi-dung.about h2:before{
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: #f00;
+}
+
+footer .container .noi-dung.about p{
+    color: #999;
+}
+
+.social-icon{
+    margin-top: 20px;
+    display: flex;
+}
+
+.social-icon li {
+    list-style: none;
+}
+.social-icon li a{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background: #222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.social-icon li a:hover{
+    background: #f00;
+}
+
+.social-icon li a .fa{
+    color: #fff;
+    font-size: 20px;
+}
+
+.links h2{
+    position: relative;
+    color: #fff;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.links h2{
+     position: relative;
+     color: #fff;
+     font-weight: 500;
+     margin-bottom: 15px;
+ }
+.links h2::before{
+     content: '';
+     position: absolute;
+     bottom: -5px;
+     left: 0;
+     width: 50px;
+     height: 2px;
+     background: #f00;
+ }
+.links{
+    position: relative;
+    width: 25%;
+ }
+ .links ul li{
+     list-style: none;
+ }
+ .links ul li a{
+     color: #999;
+     text-decoration: none;
+     margin-bottom: 10px;
+     display: inline-block;
+ }
+.links ul li a:hover{
+     color: #fff;
+ }
+
+.contact h2{
+    position: relative;
+    color: #fff;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.contact h2::before{
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: #f00;
+}
+
+.contact{
+    width: calc(35% - 60px);
+    margin-right: 300 !important;
+}
+
+.contact .info{
+    position: relative;
+}
+.contact .info li{
+    display: flex;
+    margin-bottom: 16px;
+}
+.contact .info li span:nth-child(1) {
+    color: #fff;
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.contact .info li span{
+    color: #999;
+}
+
+.contact .info li a{
+    color: #999;
+    text-decoration: none;
+}
+
+.btn {
+    display: inline-block;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    border: 0;
+    outline: 0;
+    padding: 0;
+    margin-top:16px;
+    transition: all 200ms ease-in;
+    cursor: pointer;
+}
+.btn--primary {
+    background: #222;
+    color: #fff;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, .1);
+    border-radius: 2px;
+    padding: 8px 24px;
+}
+.btn--primary:hover {
+    background: #f00;
+}
+.btn--primary:active {
+    background: #f00;
+    box-shadow: inset 0 0 10px 2px rgba(0, 0, 0, .2);
+}
+
+.form__field {
+    width: 90%;
+    background: #fff;
+    color: #a3a3a3;
+    font: inherit;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, .1);
+    border: 0;
+    outline: 0;
+    padding: 8px 4px;
+}
+
+@media  (max-width: 768px){
+    footer{
+        padding: 40px;
+
+    }
+    footer .container{
+        flex-direction: column;
+    }
+    footer .container .noi-dung{
+        margin-right: 0;
+        margin-bottom: 40px;
+    }
+    footer .container, .noi-dung.about, .links, .contact{
+        width: 100%;
+    }
+}
+</style>
+<body>
+    <div class="text-center">
+        <p  class="search-title" ><b>NHẬN BIẾT TIN RÁC</b></p>
+    </div>
+    <form action="/search" method="POST">
+        <div class="searchbar">
+            <img src=https://i.ibb.co/2PLkRt4/lhp.png" alt="lhp" width="80" height="80">
+            <input name="query" type="text submit" placeholder="Tin tức bạn muốn kiểm tra" class="bar" required>
+        </div>
+    </form>
+</body>
+
+<br><br><br><br><br>
+
+<footer>
+     <div class="container">
+         <!--Bắt Đầu Nội Dung Giới Thiệu-->
+         <div class="noi-dung about">
+             <h2>Về Sản phẩm</h2>
+             <p> Dự án này là của bạn Nguyễn Minh Nhật Huy CTIN2023-Lê Hồng Phong khi trong quá trình nghiên cứu về NLP </p>
+             <ul class="social-icon">
+                 <li><a href="https://www.facebook.com/nhathuy.minhnguyen"><i class="fa fa-facebook"></i></a></li>
+                 <li><a href="https://twitter.com/Flapflap_foo"><i class="fa fa-twitter"></i></a></li>
+                 <li><a href=""><i class="fa fa-instagram"></i></a></li>
+             </ul>
+             <img src=https://i.ibb.co/2PLkRt4/lhp.png" alt="lhp" width="300" height="300">
+         </div>
+
+         <div class="noi-dung contact">
+             <h2>Thông Tin Liên Hệ</h2>
+             <ul class="info">
+                 <li>
+                     <span><i class="fa fa-map-marker"></i></span>
+                     <span>235 Đ. Nguyễn Văn Cừ, Phường 4 <br />
+                         Quận 5, Thành Phố Hồ Chí Minh<br />
+                         Việt Nam</span>
+                 </li>
+                 <li>
+                     <span><i class="fa fa-phone"></i></span>
+                     <p><a href="#">+84 389 449 524</a>
+                         <br />
+                         <a href="#">+84 523 688 654</a></p>
+                 </li>
+                 <li>
+                     <span><i class="fa fa-envelope"></i></span>
+                     <p><a href="#">nhathuynguyen1812@gmail.com</a></p>
+                </li>
+                 <li>
+                     <form class="form">
+                         <input type="email" class="form__field" placeholder="Đăng Ký Subscribe Email" />
+                         <button type="button" class="btn btn--primary  uppercase">Gửi</button>
+                     </form>
+                 </li>
+             </ul>
+         </div>
+     </div>
+ </footer>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+</html>
